@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using OpenTK;
 using OpenTK.Graphics.ES20;
 using System.Collections.Generic;
-namespace TreeGo.Droid.Graphics
+namespace Graphics
 {
     /* Rishub Nagpal
      * June 23 2016

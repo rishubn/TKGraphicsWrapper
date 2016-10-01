@@ -1,7 +1,7 @@
 using System;
 using OpenTK.Graphics;
 using OpenTK.Graphics.ES20;
-namespace TreeGo.Droid.Graphics
+namespace Graphics
 {
     //OpenGL exception so we know when something went wrong with OpenGL
     class OpenGLException : Exception
@@ -15,7 +15,7 @@ namespace TreeGo.Droid.Graphics
      */
     sealed class OpenGL
     {
-        private static readonly string PathTag = "TreeGo.Graphics.";
+        private static readonly string PathTag = "Add your namespace here";
         public static readonly string TAG = "OpenGL";
         private readonly string _version;
         private readonly string _glslversion;
@@ -59,45 +59,54 @@ namespace TreeGo.Droid.Graphics
                 t++;
             }
         }
-        public void Log(string tag,string message, LogCode code = LogCode.Debug, 
-            Android.Util.LogPriority priority = Android.Util.LogPriority.Debug)
+        public void Log(string tag,string message, LogCode code = LogCode.Debug/*, 
+            Android.Util.LogPriority priority = Android.Util.LogPriority.Debug*/)
         {
             tag = PathTag + tag;
-            switch (code)
+                        switch (code)
             {
                 case LogCode.Debug:
-                    Android.Util.Log.Debug(tag, message);
+                    //Android.Util.Log.Debug(tag, message);
+                    Console.WriteLine("[{0}] {1}] {2}", "DEBUG", tag, message);
                     break;
                 case LogCode.Error:
-                    Android.Util.Log.Error(tag, message);
+                    //Android.Util.Log.Error(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "ERROR", tag, message);
                     break;
                 case LogCode.Info:
-                    Android.Util.Log.Info(tag, message);
+                    //Android.Util.Log.Info(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "INFO", tag, message);
                     break;
                 case LogCode.Verbose:
-                    Android.Util.Log.Verbose(tag, message);
+                    //Android.Util.Log.Verbose(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "VERBOSE", tag, message);
                     break;
                 case LogCode.Warn:
-                    Android.Util.Log.Warn(tag, message);
+                    //Android.Util.Log.Warn(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "WARN", tag, message);
                     break;
                 case LogCode.WriteLine:
-                    Android.Util.Log.WriteLine(priority, tag, message);
+                    //Android.Util.Log.WriteLine(priority, tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "WRITELINE", tag, message);
                     break;
                 case LogCode.WTF:
-                    Android.Util.Log.Wtf(tag, message);
+                    //Android.Util.Log.Wtf(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "WTF", tag, message);
                     break;
                 default: //if this case is ever reached, something very very bad happened
-                    Android.Util.Log.Wtf(tag, message);
+                    //Android.Util.Log.Wtf(tag, message);
+                    Console.WriteLine("[{0}] {1} {2}", "DEFAULT", tag, message);
                     break;
             }
         }
         public void RuntimeCheck(string tag)
         {
             ErrorCode err = GL.GetErrorCode();
-            if(err != ErrorCode.NoError)
+            if (err != ErrorCode.NoError)
             {
                 FlushErrors();
-                Android.Util.Log.Error(PathTag + tag, err.ToString());
+                //Android.Util.Log.Error(PathTag + tag, err.ToString());
+                Console.WriteLine((PathTag + tag) + err);
                 throw new OpenGLException(err.ToString());
             }
         }
@@ -107,4 +116,4 @@ namespace TreeGo.Droid.Graphics
             RuntimeCheck(TAG);
         }
     }
-}
+}`

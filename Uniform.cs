@@ -2,7 +2,7 @@ using System;
 using OpenTK;
 using OpenTK.Graphics.ES20;
 
-namespace TreeGo.Droid.Graphics
+namespace Graphics
 {
     /* Rishub Nagpal
      * June 30 2016

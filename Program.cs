@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using OpenTK.Graphics.ES20;
 
-namespace TreeGo.Droid.Graphics
+namespace Graphics
 {
-    //TODO add uniform support
     /* Rishub Nagpal
      * June 9 2016
      * OpenGL program wrapper
