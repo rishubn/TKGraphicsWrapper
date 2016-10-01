@@ -59,6 +59,8 @@ namespace Graphics
                 t++;
             }
         }
+        //uncomment android lines for android
+        //TODO add pragmas
         public void Log(string tag,string message, LogCode code = LogCode.Debug/*, 
             Android.Util.LogPriority priority = Android.Util.LogPriority.Debug*/)
         {
